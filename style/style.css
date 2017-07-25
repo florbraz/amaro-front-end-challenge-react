@@ -1,0 +1,25 @@
+body {
+	padding-top:70px;
+}
+img {
+	max-width:100%;
+}
+
+/*.dropdown:hover .dropdown-menu {*/
+.dropdown .dropdown-menu {
+	display:block;
+}
+
+.dropdown-menu {
+	width:320px;
+}
+
+.mini-cart-product-image {
+	max-width:68px;
+}
+
+@media (min-width: 480px) {
+	.dropdown-menu {
+		width:380px;
+	}	
+}

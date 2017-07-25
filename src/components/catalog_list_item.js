@@ -1,11 +1,10 @@
 import React from 'react';
 
-const CatalogListItem = ({product}) => {
-	console.log(product);
+const CatalogListItem = ({product, onProductAddToCart}) => {
 	const productImage = product.image;
 	const isOnSale = product.on_sale
 	return (
-		<div className="list-group-item">
+		<div className="list-group-item col-xs-6 col-sm-4 col-md-3 col-lg-2">
 			<img src={productImage}/>
 			<h3>{product.name}</h3>
 			{isOnSale && 
@@ -16,7 +15,7 @@ const CatalogListItem = ({product}) => {
 						<br />
 						<span>por:</span>
 					</div>
-					<div class="discount-badge">
+					<div className="discount-badge">
 						<span>{product.discount_percentage}</span>
 					</div>
 				</div>
@@ -31,6 +30,7 @@ const CatalogListItem = ({product}) => {
 						return (
 							<option 
 								name={size.sku}	
+								key={size.sku}	
 								disabled={size.available} >
 								{size.size}
 							</option>
@@ -39,6 +39,11 @@ const CatalogListItem = ({product}) => {
 					})
 				}
 				</select>
+				<button 
+					className="btn btn-primary" 
+					onClick={() => onProductAddToCart(product)}>
+						add to cart
+				</button>
 			</div>
 
 		</div>

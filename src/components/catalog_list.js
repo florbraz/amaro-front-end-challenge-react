@@ -8,6 +8,7 @@ const CatalogList = (props) => {
 	const productItems = props.products.map((product) => {
 		return (
 			<CatalogListItem 
+				onProductAddToCart={props.onProductAddToCart}
 				key={product.code_color}
 				product={product}
 			/>

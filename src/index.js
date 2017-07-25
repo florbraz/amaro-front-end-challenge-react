@@ -8,7 +8,9 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		
-		this.state = {};
+		this.state = {
+			cartItems: []
+		};
 
 		this.getProducts();
 	}
@@ -26,12 +28,34 @@ class App extends Component {
 	render() {
 		return (
 			<div>
+				<nav className="navbar navbar-inverse navbar-fixed-top">
+  					<div className="container-fluid">
+					    <div className="navbar-collapse">
+					      <ul className="nav navbar-nav navbar-right">
+					        <li className="dropdown">
+					          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mini-Cart <span className="caret"></span></a>
+					          <div className="dropdown-menu">
+								
+									<MiniCart cartItems={this.state.cartItems}/>
+					            
+					          </div>
+					        </li>
+					      </ul>
+					    </div>
+					</div>
+				</nav>
 				<h1>Amaro</h1>
-				<MiniCart />
-				<CatalogList products={this.state.products} />
+				<CatalogList 
+					products={this.state.products} 
+					onProductAddToCart={
+						product => this.setState(
+							{cartItems: this.state.cartItems.concat(product)}
+						)
+					}
+				/>
 			</div>
 		)
 	}
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container-fluid'));
