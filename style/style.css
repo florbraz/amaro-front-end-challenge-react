@@ -18,8 +18,16 @@ img {
 	max-width:68px;
 }
 
+/* product */
+
+.product-info {
+	height:200px;
+	overflow: hidden;
+}
+
 @media (min-width: 480px) {
 	.dropdown-menu {
 		width:380px;
 	}	
 }
+
