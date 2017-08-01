@@ -26,7 +26,7 @@ class App extends Component {
 	}
 
 	addToCart(product) {
-		let newData = this.state.cartItems;
+		let newData = this.state.cartItems.slice();
 
 		const isProductInCart = newData.findIndex(function(obj) {
 			return obj.sku == product.sku;
@@ -38,7 +38,7 @@ class App extends Component {
 			this.setState(newData);
 
 		} else {
-			
+
 			this.setState(
 				{cartItems: this.state.cartItems.concat(product)}
 			)
