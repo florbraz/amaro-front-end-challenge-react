@@ -8,7 +8,6 @@ const MiniCartList = ({cartItems}) => {
 			<MiniCartListItem
 				key={cartItem.sku}
 				cartItem={cartItem}
-				quantity={quantity}
 			/>
 		)
 	})
