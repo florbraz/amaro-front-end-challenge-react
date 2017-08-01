@@ -1,25 +1,29 @@
 import React from 'react';
 
-const MiniCartListItem = ({product}) => {
-	const productImage = product.image;
-	const isOnSale = product.on_sale
+const MiniCartListItem = ({cartItem}) => {
+	const productImage = cartItem.product.image;
+	const isOnSale = cartItem.product.on_sale
 	return (		
 		<tr>
 			<td>
 				<img src={productImage} className="mini-cart-product-image"/>
 			</td>
 			<td>
-				<h5>{product.name}</h5>
+				<h5>{cartItem.product.name}</h5>
+				<p>{cartItem.size}</p>
 			</td>
 			<td>
 				{isOnSale && 
 					<div>
 						<div className="discounted-price">
-							<s>{product.regular_price}</s>
+							<s>{cartItem.product.regular_price}</s>
 						</div>
 					</div>
 				}
-				<b>{product.actual_price}</b>
+				<b>{cartItem.product.actual_price}</b>
+			</td>
+			<td>
+				qty: {cartItem.qty}
 			</td>
 		</tr>
 	)

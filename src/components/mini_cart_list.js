@@ -6,8 +6,8 @@ const MiniCartList = ({cartItems}) => {
 	const cart_items = cartItems.map((cartItem) => {
 		return (
 			<MiniCartListItem
-				key={cartItem.code_color}
-				product={cartItem}
+				key={cartItem.sku}
+				cartItem={cartItem}
 			/>
 		)
 	})

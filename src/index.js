@@ -25,6 +25,14 @@ class App extends Component {
       	);
 	}
 
+	addToCart(product) {
+		const sku = product.sku;
+		
+		this.setState(
+			{cartItems: this.state.cartItems.concat(product)}
+		)
+	}
+
 	render() {
 		return (
 			<div>
@@ -48,9 +56,7 @@ class App extends Component {
 				<CatalogList 
 					products={this.state.products} 
 					onProductAddToCart={
-						product => this.setState(
-							{cartItems: this.state.cartItems.concat(product)}
-						)
+						product => this.addToCart(product)
 					}
 				/>
 			</div>
