@@ -64,7 +64,9 @@ class MiniCartListItem extends Component {
 				        <button
 				         className="btn btn-default" 
 				         onClick={() => this.decreaseQuantity()}
-				         type="button">-</button>
+				         type="button">
+				         	-
+				         </button>
 				      </span>
 				      <input 
 				      	type="text" 
@@ -74,11 +76,21 @@ class MiniCartListItem extends Component {
 				      />
 				      <span className="input-group-btn">
 				        <button 
-				        	className="btn btn-default" 
-				        	onClick={() => this.increaseQuantity()}
-				        	type="button">+</button>
+			        	className="btn btn-default" 
+			        	onClick={() => this.increaseQuantity()}
+			        	type="button">
+			        		+
+				        </button>
 				      </span>
 				    </div>
+				</td>
+				<td>
+					<button 
+			        	className="btn btn-danger" 
+			        	onClick={() => this.remove()}
+			        	type="button">
+			        		x
+		        	</button>
 				</td>
 			</tr>
 		)
