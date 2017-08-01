@@ -23,7 +23,15 @@ const MiniCartListItem = ({cartItem}) => {
 				<b>{cartItem.product.actual_price}</b>
 			</td>
 			<td>
-				qty: {cartItem.qty}
+				<div className="input-group">
+			      <span className="input-group-btn">
+			        <button className="btn btn-default" type="button">-</button>
+			      </span>
+			      <input type="text" className="form-control" value={cartItem.qty}/>
+			      <span className="input-group-btn">
+			        <button className="btn btn-default" type="button">+</button>
+			      </span>
+			    </div>
 			</td>
 		</tr>
 	)

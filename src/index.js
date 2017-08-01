@@ -26,11 +26,24 @@ class App extends Component {
 	}
 
 	addToCart(product) {
-		const sku = product.sku;
-		
-		this.setState(
-			{cartItems: this.state.cartItems.concat(product)}
-		)
+		let newData = this.state.cartItems;
+
+		const isProductInCart = newData.findIndex(function(obj) {
+			return obj.sku == product.sku;
+		});
+
+		if (isProductInCart >= 0) {
+
+			newData[isProductInCart].qty++;
+			this.setState(newData);
+
+		} else {
+			
+			this.setState(
+				{cartItems: this.state.cartItems.concat(product)}
+			)
+		}
+
 	}
 
 	render() {

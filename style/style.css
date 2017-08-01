@@ -18,6 +18,14 @@ img {
 	max-width:68px;
 }
 
+.mini-cart .table>tbody>tr>td {
+	vertical-align: middle;
+}
+
+.mini-cart .input-group {
+	width:100px;
+}
+
 /* product */
 
 .product-info {
