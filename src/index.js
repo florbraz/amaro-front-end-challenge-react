@@ -28,13 +28,13 @@ class App extends Component {
 	addToCart(product) {
 		let newData = this.state.cartItems.slice();
 
-		const isProductInCart = newData.findIndex(function(obj) {
+		const productIndex = newData.findIndex(function(obj) {
 			return obj.sku == product.sku;
 		});
 
-		if (isProductInCart >= 0) {
+		if (productIndex >= 0) {
 
-			newData[isProductInCart].qty++;
+			newData[productIndex].qty++;
 			this.setState(newData);
 
 		} else {
@@ -44,6 +44,22 @@ class App extends Component {
 			)
 		}
 
+	}
+
+	removeFromCart(product) {
+		let newData = this.state.cartItems.slice();
+
+		const productIndex = newData.findIndex(function(obj) {
+			return obj.sku == product;
+		});
+
+		if (productIndex >= 0) {
+			newData[productIndex].qty = 1;
+			newData.splice(productIndex,1);
+
+			this.setState({cartItems: newData});
+
+		}
 	}
 
 	render() {
@@ -57,7 +73,10 @@ class App extends Component {
 					          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mini-Cart <span className="caret"></span></a>
 					          <div className="dropdown-menu">
 								
-									<MiniCart cartItems={this.state.cartItems}/>
+									<MiniCart 
+										cartItems={this.state.cartItems}
+										removeItem={item => this.removeFromCart(item)}
+									/>
 					            
 					          </div>
 					        </li>
